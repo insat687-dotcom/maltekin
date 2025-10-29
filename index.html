@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://public-frontend-cos.metadl.com/mgx/img/favicon.png" type="image/png">
+    <title>Mikrobiyoloji ve Biyokimya Laboratuvar Rehberi</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1 class="header-title">
+                <span class="icon">🔬</span>
+                Laboratuvar Rehberi
+            </h1>
+            <p class="header-subtitle">Mikrobiyoloji ve Biyokimya Laboratuvar Çalışmaları</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Search Section -->
+            <section class="search-section">
+                <div class="search-container">
+                    <div class="search-input-wrapper">
+                        <span class="search-icon">🔍</span>
+                        <input 
+                            type="text" 
+                            id="searchInput" 
+                            class="search-input" 
+                            placeholder="Konu, kategori veya sayfa numarası ara..."
+                            autocomplete="off"
+                        >
+                        <button id="clearSearch" class="clear-btn" style="display: none;">✕</button>
+                    </div>
+                    <div class="search-stats" id="searchStats"></div>
+                </div>
+            </section>
+
+            <!-- Filter Section -->
+            <section class="filter-section">
+                <div class="filter-container">
+                    <label for="categoryFilter" class="filter-label">Kategori Filtresi:</label>
+                    <select id="categoryFilter" class="category-filter">
+                        <option value="">Tüm Kategoriler</option>
+                    </select>
+                    <label for="moduleFilter" class="filter-label">Modül:</label>
+                    <select id="moduleFilter" class="module-filter">
+                        <option value="">Tüm Modüller</option>
+                        <option value="mikrobiyoloji">Mikrobiyoloji</option>
+                        <option value="biyokimya">Biyokimya</option>
+                    </select>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section">
+                <div id="topicsContainer" class="topics-container">
+                    <!-- Konular buraya dinamik olarak yüklenecek -->
+                </div>
+                
+                <!-- No Results Message -->
+                <div id="noResults" class="no-results" style="display: none;">
+                    <div class="no-results-icon">🔍</div>
+                    <h3>Sonuç bulunamadı</h3>
+                    <p>Arama kriterlerinizi değiştirmeyi deneyin.</p>
+                </div>
+            </section>
+
+            <!-- PDF Reference -->
+            <section class="pdf-section">
+                <div class="pdf-container">
+                    <div class="pdf-info">
+                        <span class="pdf-icon">📄</span>
+                        <div class="pdf-details">
+                            <h3>Referans Belge</h3>
+                            <p>Detaylı bilgi için <strong>belge.pdf</strong> dosyasını inceleyebilirsiniz.</p>
+                        </div>
+                    </div>
+                    <a href="./belge.pdf" target="_blank" class="pdf-link">PDF'i Aç</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Laboratuvar Rehberi - Mikrobiyoloji ve Biyokimya Çalışmaları</p>
+        </div>
+    </footer>
+
+    <!-- Topic Detail Modal -->
+    <div id="topicModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle"></h2>
+                <button id="closeModal" class="close-btn">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="topic-info">
+                    <span class="topic-page" id="modalPage"></span>
+                    <span class="topic-category" id="modalCategory"></span>
+                </div>
+                <div class="topic-description" id="modalDescription">
+                    Bu konu hakkında detaylı bilgi için PDF belgesinin ilgili sayfasını inceleyiniz.
+                </div>
+                <div class="modal-actions">
+                    <a href="./belge.pdf" target="_blank" class="pdf-button">PDF'te Görüntüle</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="./topics-data.js"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>
